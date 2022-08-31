@@ -4,6 +4,7 @@ int main()
 {
     int user;
     //using default constructor
+    //array
     array a1,a2,res;
 
     a1.take_input();
@@ -25,6 +26,7 @@ int main()
     res2=a1.add(a2);
 
     res2.display();
+    //matrix
     int row,col;
     cout << "enter the row and column:" ;
     cin >> row >> col;
