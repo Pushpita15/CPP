@@ -4,7 +4,7 @@ int main()
 {
     int user;
     //using default constructor
-    /*array a1,a2,res;
+    array a1,a2,res;
 
     a1.take_input();
     cout << "-----\n";
@@ -24,8 +24,8 @@ int main()
     cout << "------\n";
     res2=a1.add(a2);
 
-    res2.display();*/
-    /*int row,col;
+    res2.display();
+    int row,col;
     cout << "enter the row and column:" ;
     cin >> row >> col;
     matrix m1(row,col),m2(row,col),sum(row,col);
@@ -39,16 +39,16 @@ int main()
     cout << "-------\n";
 
     sum=m1.add_m(m2);
-    sum.displaym();*/
+    sum.displaym();
 
-    matrix m3,m4,sum2;
+    /*matrix m3,m4,sum2;
 
     m3.take_inputm();
     cout << "-----\n";
     m4.take_inputm();
     cout << "------\n";
     sum2=m3.add_m(m4);
-    sum2.displaym();
+    sum2.displaym();*/
     
     
     return 0;
