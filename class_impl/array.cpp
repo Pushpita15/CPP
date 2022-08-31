@@ -40,3 +40,58 @@ void array::display()
     }
     cout<<endl;
 }
+
+matrix::matrix()
+{
+    int row=4,col=4;
+    this->row=row;
+    this->column=col;
+    this->arr=new int*[row];
+    this->p=new int[row*col];
+    for(int i=0;i<row;++i)
+    {
+        this->arr[i]=p+i*col;
+    }
+}
+
+matrix::matrix(int row,int coln)
+{
+    this->row=row;
+    this->column=coln;
+    this->arr=new int*[row];
+    this->p=new int[row*coln];
+    for(int i=0;i<row;++i)
+    {
+        this->arr[i]=p+i*coln;
+    }
+}
+
+void matrix::take_inputm()
+{
+    for(int i=0;i<this->row;i++)
+    {
+        for(int j=0;j<this->column;++j)
+            cin >> this->arr[i][j];
+    }
+}
+
+matrix matrix::add_m(matrix M)
+{
+    matrix sum(this->row,this->column);
+    for(int i=0;i<M.row;++i)
+    {
+        for(int j=0;j<M.column;++j)
+            sum.arr[i][j]=this->arr[i][j]+M.arr[i][j];
+    }
+    return sum;
+}
+
+void matrix::displaym()
+{
+    for(int i=0;i<this->row;++i)
+    {
+        for(int j=0;j<this->column;++j)
+            cout << this->arr[i][j] << ' ';
+        cout << endl;
+    }
+}
