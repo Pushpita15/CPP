@@ -22,7 +22,13 @@ void array::take_input()
         cin >> arr[i];
     }
 }
-
+istream& operator>>(istream & in,array &ob)
+{
+    for(int i=0;i<ob.size;++i)
+    {
+        in >> ob.arr[i];
+    }
+}
 array array::add(array L)
 {
     array res(this->size);
@@ -32,6 +38,34 @@ array array::add(array L)
     }
     return res;
 }
+array array::operator+(array L)
+{
+    array result(this->size);
+    for(int i=0;i<L.size;++i)
+    {
+        result.arr[i]=this->arr[i]+L.arr[i];
+    }
+    return result;
+}
+array array::operator-(array L)
+{
+    array sub(this->size);
+    for(int i=0;i<L.size;++i)
+    {
+        sub.arr[i]=this->arr[i]-L.arr[i];
+    }
+    return sub;
+}
+array array::operator*(array L)
+{
+    array mult(this->size);
+    for(int i=0;i<L.size;++i)
+    {
+        mult.arr[i]=this->arr[i]*L.arr[i];
+    }
+    return mult;
+}
+
 void array::display()
 {
     for (int i=0;i<this->size;++i)
@@ -40,7 +74,15 @@ void array::display()
     }
     cout<<endl;
 }
+ostream& operator<<(ostream& out,array& ob)
+{
 
+    for (int i=0;i<ob.size;++i)
+    {
+        out << ob.arr[i] << ' ';
+    }
+    out<<endl;
+}
 matrix::matrix()
 {
     int row=4,col=4;
@@ -53,7 +95,6 @@ matrix::matrix()
         this->arr[i]=p+i*col;
     }
 }
-
 matrix::matrix(int row,int coln)
 {
     this->row=row;
@@ -74,6 +115,14 @@ void matrix::take_inputm()
             cin >> this->arr[i][j];
     }
 }
+istream& operator>>(istream& in,matrix& M)
+{
+    for(int i=0;i<M.row;i++)
+    {
+        for(int j=0;j<M.column;++j)
+            in >> M.arr[i][j];
+    }
+}
 
 matrix matrix::add_m(matrix M)
 {
@@ -85,13 +134,51 @@ matrix matrix::add_m(matrix M)
     }
     return sum;
 }
-
+matrix matrix::operator+(matrix M)
+{
+    matrix add(this->row,this->column);
+    for(int i=0;i<M.row;++i)
+    {
+        for(int j=0;j<M.column;++j)
+            add.arr[i][j]=this->arr[i][j]+M.arr[i][j];
+    }
+    return add;
+}
+matrix matrix::operator-(matrix M)
+{
+    matrix sub(this->row,this->column);
+    for(int i=0;i<M.row;++i)
+    {
+        for(int j=0;j<M.column;++j)
+            sub.arr[i][j]=this->arr[i][j]-M.arr[i][j];
+    }
+    return sub;
+}
+matrix matrix::operator*(matrix M)
+{
+    matrix mult(this->row,this->column);
+    for(int i=0;i<M.row;++i)
+    {
+        for(int j=0;j<M.column;++j)
+            mult.arr[i][j]=this->arr[i][j]*M.arr[i][j];
+    }
+    return mult;
+}
 void matrix::displaym()
 {
     for(int i=0;i<this->row;++i)
     {
         for(int j=0;j<this->column;++j)
             cout << this->arr[i][j] << ' ';
+        cout << endl;
+    }
+}
+ostream & operator<<(ostream & out,matrix& M)
+{
+      for(int i=0;i<M.row;++i)
+    {
+        for(int j=0;j<M.column;++j)
+            cout << M.arr[i][j] << ' ';
         cout << endl;
     }
 }

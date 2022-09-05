@@ -4,53 +4,64 @@ int main()
 {
     int user;
     //using default constructor
-    //array
-    array a1,a2,res;
+   array a1,a2,res;
 
-    a1.take_input();
+    cin >> a1;
     cout << "-----\n";
-    a2.take_input();
+    cin >> a2;
     cout << "------\n";
-    res=a1.add(a2);
-
-    res.display();
+    //res=a1.add(a2); 
+    res=a1+a2;
+    cout << res;
+    //res.display(); 
     //using parameterized constructor
     cout << "enter the size:" ;
     cin >> user;
-    array a3(user),a4(user),res2(user);
+    array a3(user),a4(user),res2(user),sub(user),mult(user);
 
-    a3.take_input();
+    cin >> a3;
     cout << "-----\n";
-    a4.take_input();
+    cin >> a4;
     cout << "------\n";
-    res2=a1.add(a2);
-
-    res2.display();
+    //res2=a3.add(a4);
+    res2=a3+a4;
+    cout << res2;
+    sub=a3-a4;
+    cout << sub;
+    mult=a3*a4;
+    cout << mult;
+    //res2.display();
+    printf("matrix---------------\n");
     //matrix
     int row,col;
     cout << "enter the row and column:" ;
     cin >> row >> col;
     matrix m1(row,col),m2(row,col),sum(row,col);
 
-    m1.take_inputm();
-    m1.displaym();
+    //m1.take_inputm();
+    cin >> m1;
+    //m1.displaym();
+    cout << m1;
     cout << "-----\n";
     
-    m2.take_inputm();
-    m2.displaym();
+    //m2.take_inputm();
+    cin >> m2;
+    //m2.displaym();
+    cout << m2;
     cout << "-------\n";
 
-    sum=m1.add_m(m2);
+    //sum=m1.add_m(m2);
+    sum=m1+m2;
     sum.displaym();
 
-    /*matrix m3,m4,sum2;
+    matrix m3,m4,multiply;
 
     m3.take_inputm();
     cout << "-----\n";
     m4.take_inputm();
     cout << "------\n";
-    sum2=m3.add_m(m4);
-    sum2.displaym();*/
+    multiply = m3*m4;
+    cout << multiply;
     
     
     return 0;
