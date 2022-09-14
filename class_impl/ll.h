@@ -34,6 +34,7 @@ class linked_list
         Node * search_by_val(item val);
         void reverse();
         void reverse_rec(Node * current);
+        void insertion_sort();
         void display();// operator << overloaded
         friend ostream& operator <<(ostream & out,const linked_list & ob);
         friend istream& operator >>(istream & in, const linked_list & ob);

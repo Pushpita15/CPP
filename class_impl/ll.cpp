@@ -137,6 +137,7 @@ Node * linked_list::search_by_pos(int pos)
         count++;
         temp=temp->next;
     }
+    
     if(pos>count)
     {
         cout << "invalid position" << endl;
@@ -149,7 +150,18 @@ Node * linked_list::search_by_pos(int pos)
 
     return curr;
 }
-
+Node * linked_list:: search_by_val(item val)
+{
+    Node * curr=head;
+    if(head==NULL)
+        return NULL;
+    else
+    {
+        while(curr->data!=val)
+            curr=curr->next;
+        return curr;
+    }
+}
 Node * linked_list::deln(int n)
 {
     Node * prev=search_by_pos(n-1);
@@ -161,7 +173,7 @@ Node * linked_list::deln(int n)
 
 void linked_list::reverse()
 {
-    //Node * temp=head;
+    
     if(head==NULL)
         return ;
     else
@@ -185,5 +197,38 @@ void linked_list::reverse_rec(Node * current)
             reverse_rec(current->next);
     cout << current->data <<' ';
 }
-
+void linked_list::insertion_sort()
+{
+    Node * curr=head->next;
+    Node * prev=head;
+    Node * p,*q;
+    while(curr!=NULL)
+    {
+        p=NULL;
+        q=head;
+        while(q->data<curr->data && q!=curr)
+        {
+            p=q;
+            q=q->next;
+        }
+        if(q!=curr)
+        {
+            prev->next=curr->next;
+            curr->next=q;
+            if(p==NULL)
+            {
+                head=curr;
+            }
+            else
+            {
+                p->next=curr;
+            }
+            curr=prev->next;
+        }
+        else{
+            prev=curr;
+            curr=curr->next;
+        }
+    }
+}
 
